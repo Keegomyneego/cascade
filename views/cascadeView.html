@@ -1,19 +1,25 @@
-
-<script type="text/javascript" src="/views/models/cascadeViewModel.js"></script>
-
 <div id="background"></div>
 <div id="foreground">
 	<form>
 		<fieldset>
 			<legend>Cascade</legend>
+
 			<div>
-				<span>Rows:</span> <input type="text" id="rows" value="10" />
+				<span>Rows:</span> <input type="text" id="rows" value="6" />
 			</div>
+
 			<div>
 				<span>Columns:</span> <input type="text" id="columns" value="10" />
 			</div>
+
+			<div>
+				<span>Margin:</span> <input type="text" id="margin" value="10" />
+			</div>
+
 			<div>
 				<button id="cascade">Cascade</button>
+				<button id="pause">Pause</button>
+				<button id="resume">Resume</button>
 			</div>
 		</fieldset>
 	</form>

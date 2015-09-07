@@ -85,8 +85,6 @@
         return that;
     }());
 
-    window.temp = updateLoop;
-
     // Get things rolling
     $(document).ready(initialize);
     $(window).resize(function () {

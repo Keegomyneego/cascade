@@ -4,6 +4,8 @@
 (function () {
     "use strict";
 
+    console.log("running viewmodel module");
+
     // Config
 
     var tileUpdateRate = 1000;
@@ -84,6 +86,8 @@
 
         return that;
     }());
+
+    window.temp = updateLoop;
 
     // Get things rolling
     $(document).ready(initialize);

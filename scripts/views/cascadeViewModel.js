@@ -4,8 +4,6 @@
 (function () {
     "use strict";
 
-    console.log("running viewmodel module");
-
     // Config
 
     var tileUpdateRate = 1000;
@@ -115,7 +113,6 @@
 
     // Creates the tiles and sets them to auto update
     function initialize() {
-        console.log("initializing");
         $('#cascade').click(function (e) {
             refreshTiles();
             e.preventDefault();
@@ -135,7 +132,6 @@
         updateTilePlacement();
 
         updateLoop.start();
-        console.log("initialization done");
     }
 
     function maxTileDelayTime() {

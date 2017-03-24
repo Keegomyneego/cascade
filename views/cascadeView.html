@@ -1,26 +1,34 @@
 <div id="background"></div>
 <div id="foreground">
-	<form>
-		<fieldset>
-			<legend>Cascade</legend>
+  <form>
+    <fieldset>
+      <legend>Cascade</legend>
 
-			<div>
-				<span>Rows:</span> <input type="text" id="rows" value="6" />
-			</div>
+      <div class="variable">
+        <span>Rows:</span> <input type="text" id="rows" value="6" />
+      </div>
 
-			<div>
-				<span>Columns:</span> <input type="text" id="columns" value="10" />
-			</div>
+      <div class="variable">
+        <span>Columns:</span> <input type="text" id="columns" value="10" />
+      </div>
 
-			<div>
-				<span>Margin:</span> <input type="text" id="margin" value="10" />
-			</div>
+      <div class="variable">
+        <span>Margin:</span> <input type="text" id="margin" value="10" />
+      </div>
 
-			<div>
-				<button id="cascade">Cascade</button>
-				<button id="pause">Pause</button>
-				<button id="resume">Resume</button>
-			</div>
-		</fieldset>
-	</form>
+      <div class="variable">
+        <span>Ideal Tile Lightness:</span> <input type="text" id="idealTileLightness" value="0.97" />
+      </div>
+
+      <div class="variable">
+        <span>Ideal Tile Variability:</span> <input type="text" id="idealTileVariability" value="0.01" />
+      </div>
+
+      <div class="actions">
+        <button id="cascade">Cascade</button>
+        <button id="pause">Pause</button>
+        <button id="resume">Resume</button>
+      </div>
+    </fieldset>
+  </form>
 </div>

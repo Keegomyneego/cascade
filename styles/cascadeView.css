@@ -20,19 +20,27 @@ body, button {
 }
 
 #foreground form fieldset {
+	display: flex;
+	flex-direction: row;
+	align-content: space-between;
 	line-height: 2em;
 	margin: auto;
-	width: 20em;
+	width: 24em;
+	padding: 2em;
 }
 
-#foreground form fieldset div {
+#foreground form fieldset .variable {
+	display: flex;
+}
+
+#foreground form fieldset .actions {
 	text-align: center;
 }
 
 #foreground form fieldset span {
-	display: inline-block;
+	display: flex;
 	text-align: left;
-	width: 5em;
+	flex-grow: 1;
 }
 
 #foreground form fieldset, #foreground form legend {

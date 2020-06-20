@@ -1,0 +1,14 @@
+{
+  "name": "cascade",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:keego/cascade.git",
+  "author": "Keegan Farley <kfarley@axon.com>",
+  "license": "MIT",
+  "dependencies": {
+    "serve": "^11.3.2"
+  },
+  "scripts": {
+    "start": "yarn serve public"
+  }
+}

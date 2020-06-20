@@ -20,8 +20,15 @@
     var tileMinLightness = 0.85;
     var tileLightnessSpread = 0.15;
 
-    var tileLightnessDeadZoneLowerBound = 0.97;
-    var tileLightnessDeadZoneUpperBound = 0.99;
+    var idealTileLightness = ko.observable();
+    var idealTileVariability = ko.observable();
+
+    var tileLightnessDeadZoneLowerBound = ko.computed(function () {
+      return idealTileLightness() - idealTileVariability();
+    });
+    var tileLightnessDeadZoneUpperBound = ko.computed(function () {
+      return idealTileLightness() + idealTileVariability();
+    });
 
     // Locals
 
@@ -133,7 +140,7 @@
     }
 
     function maxTileDelayTime() {
-        return tileDelayTime(tileRows(), tileColumns());
+        return getTileDelayTime(tileRows(), tileColumns());
     }
 
     // Makes a new tile of the given height and width and with the given id
@@ -174,7 +181,7 @@
                 $("#" + row + "-" + col).animate({
                     backgroundColor: "white"
                 }, tileFadeDuration);
-            }, tileDelayTime(row, col) / 2);
+            }, getTileDelayTime(row, col) / 2);
         });
 
         setTimeout(function () {
@@ -188,16 +195,18 @@
         return deferred.promise();
     }
 
-    function tileDelayTime(row, col) {
+    function getTileDelayTime(row, col) {
         return (row - 1) * 10 +
                (col - 1) * 10;
     }
 
     function updateTileSettings() {
         margin($("#margin").val());
+        idealTileLightness($("#idealTileLightness").val());
+        idealTileVariability($("#idealTileVariability").val());
     }
 
-    // 
+    //
     function updateTilePlacement() {
         tileRows(Number($('#rows').val()));
         tileColumns(Number($('#columns').val()));
@@ -221,14 +230,14 @@
                 var currentColor = jQuery.Color($("#" + row + "-" + col), "backgroundColor");
 
                 // when to update the Tiles
-                if (currentColor.lightness() < tileLightnessDeadZoneLowerBound ||
-                    currentColor.lightness() > tileLightnessDeadZoneUpperBound ||
+                if (currentColor.lightness() < tileLightnessDeadZoneLowerBound() ||
+                    currentColor.lightness() > tileLightnessDeadZoneUpperBound() ||
                     currentColor.lightness() == 1) {
                     $("#" + row + "-" + col).animate({
                         backgroundColor: tileColor
                     }, tileFadeDuration);
                 }
-            }, tileDelayTime(row, col));
+            }, getTileDelayTime(row, col));
         });
     }
 
